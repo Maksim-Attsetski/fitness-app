@@ -1,0 +1,1 @@
+export const fitnessLogoURL: string = `https://img.freepik.com/free-vector/fitness-logo-design-sports-logo_331749-164.jpg`

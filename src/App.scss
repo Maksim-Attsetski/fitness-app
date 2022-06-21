@@ -1,0 +1,31 @@
+$mainColor: #1976d2;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.page {
+  min-height: 80vh;
+  display: grid;
+  place-items: center;
+}
+header {
+  a {
+    color: #fff;
+    &.active {
+      color: gold;
+    }
+  }
+}
+.burger a {
+  color: black;
+  &.active {
+    color: $mainColor;
+  }
+}
+
+a {
+  text-decoration: none;
+}
