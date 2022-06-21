@@ -11,6 +11,9 @@ $mainColor: #1976d2;
   display: grid;
   place-items: center;
 }
+a {
+  text-decoration: none;
+}
 header {
   a {
     color: #fff;
@@ -25,7 +28,6 @@ header {
     color: $mainColor;
   }
 }
-
-a {
-  text-decoration: none;
+.exercise__link {
+  color: $mainColor;
 }

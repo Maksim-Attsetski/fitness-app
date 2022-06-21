@@ -1,8 +1,11 @@
 import Button from '@mui/material/Button';
 import React, {FC, useRef, useState} from 'react';
 import Box from "@mui/material/Box";
-import {CircularProgress} from "@mui/material";
+import {CircularProgress, Grid} from "@mui/material";
 import Typography from "@mui/material/Typography";
+import {exerciseList} from "../db";
+import {IExercise} from "../types/exercise";
+import Exercise from "../components/Exercise";
 
 
 const ExercisePage: FC = () => {
@@ -25,9 +28,10 @@ const ExercisePage: FC = () => {
 
     return (
         <div>
-            <Box sx={{m: 2}}></Box>
-            <Button onClick={toggleWork} variant="contained"
-            >{isWork ? 'stop' : 'start'}</Button>
+            <Box sx={{m: 2}}>
+                <Button onClick={toggleWork} variant="contained"
+                >{isWork ? 'stop' : 'start'}</Button>
+            </Box>
 
             <Box sx={{position: 'relative'}}>
                 <CircularProgress variant="determinate" value={progress} size={90} sx={{color: '#000'}}/>
@@ -47,6 +51,12 @@ const ExercisePage: FC = () => {
                     </Typography>
                 </Box>
             </Box>
+
+            <Grid container spacing={3}>
+                {exerciseList.map((exercise: IExercise) =>
+                    <Exercise exercise={exercise} key={exercise.id} />
+                )}
+            </Grid>
         </div>
     );
 };

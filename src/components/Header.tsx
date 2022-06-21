@@ -28,8 +28,7 @@ const navItems = [
     {text: 'Статистика', to: routeNames.STATISTICS},
 ];
 
-const Header = (props: Props) => {
-    const {window} = props;
+const Header = () => {
     const [mobileOpen, setMobileOpen] = React.useState(false);
 
     const handleDrawerToggle = () => {
@@ -56,8 +55,6 @@ const Header = (props: Props) => {
         </Box>
     );
 
-    const container = window !== undefined ? () => window().document.body : undefined;
-
     return (
         <Box component="header" sx={{display: 'flex'}}>
             <AppBar component="nav">
@@ -67,21 +64,21 @@ const Header = (props: Props) => {
                         aria-label="open drawer"
                         edge="start"
                         onClick={handleDrawerToggle}
-                        sx={{mr: 2, display: {sm: 'none'}}}
+                        sx={{mr: 2, display: {md: 'none'}}}
                     >
                         <MenuIcon/>
                     </IconButton>
                     <Typography
                         variant="h6"
                         component="div"
-                        sx={{flexGrow: 1, display: {xs: 'none', sm: 'block'}}}
+                        sx={{flexGrow: 1, display: {xs: 'none', md: 'block'}}}
                     >
                         <Logo/>
                     </Typography>
 
                     <SearchInput/>
 
-                    <Box sx={{display: {xs: 'none', sm: 'flex'}, gap: 2, ml: 3}}>
+                    <Box sx={{display: {xs: 'none', md: 'flex'}, gap: 2, ml: 3}}>
                         {navItems.map((item) => (
                             <NavLink to={item.to} key={item.to}>
                                 {item.text}
@@ -92,7 +89,6 @@ const Header = (props: Props) => {
             </AppBar>
             <Box component="nav">
                 <Drawer
-                    container={container}
                     variant="temporary"
                     open={mobileOpen}
                     onClose={handleDrawerToggle}
