@@ -32,9 +32,20 @@ const exerciseSlice = createSlice({
                 state.favoriteExercises = [...state.favoriteExercises, action.payload]
             }
             setLCFavorite(state.favoriteExercises)
+        },
+        setActivity: (state, action: PayloadAction<IActivity>) => {
+            const isExist = state.activity.some((item: IActivity) => item.exerciseName === action.payload.exerciseName)
+            if (isExist) {
+                state.activity = state.activity
+                    .map((item: IActivity) => item.exerciseName === action.payload.exerciseName
+                        ? action.payload : item)
+            } else {
+                state.activity = [...state.activity, action.payload]
+            }
+            setLCActivity(state.activity)
         }
     }
 })
 
-export const {toggleFavorite} = exerciseSlice.actions
+export const {toggleFavorite, setActivity} = exerciseSlice.actions
 export const exerciseSliceReducer = exerciseSlice.reducer

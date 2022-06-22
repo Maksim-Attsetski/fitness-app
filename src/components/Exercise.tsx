@@ -52,7 +52,7 @@ const Exercise: FC<IProps> = ({exercise}) => {
                 </CardContent>
                 <CardActions>
                     <Button size="small">
-                        <Link className={'exercise__link'} to={routeNames.HOME}>Перейти</Link>
+                        <Link className={'exercise__link'} to={`${routeNames.EXERCISES}/${id}`}>Перейти</Link>
                     </Button>
                     <Button size="small" onClick={() => dispatch(toggleFavorite(id))}>
                         {inFavorite ? 'В избранном' : 'В избранное'}
