@@ -3,7 +3,7 @@ import {alpha, styled} from '@mui/material/styles';
 import InputBase from '@mui/material/InputBase';
 import SearchIcon from '@mui/icons-material/Search';
 import {IExercise} from "../types/exercise";
-import {exerciseList} from "../db";
+import {exerciseList} from "../db/lists";
 import {useDebounce} from "../hooks/useDebounce";
 import {routeNames} from "../routes/routeNames";
 import {Link, useLocation} from "react-router-dom";

@@ -16,20 +16,15 @@ import SearchInput from "./SearchInput";
 import {routeNames} from "../routes/routeNames";
 import {NavLink} from "react-router-dom";
 
-interface Props {
-    window?: () => Window;
-}
-
-const drawerWidth = 240;
-const navItems = [
-    {text: 'О нас', to: routeNames.ABOUT},
-    {text: 'Контакты', to: routeNames.CONTACTS},
-    {text: 'Упражнения', to: routeNames.EXERCISES},
-    {text: 'Статистика', to: routeNames.STATISTICS},
-];
-
 const Header = () => {
     const [mobileOpen, setMobileOpen] = React.useState(false);
+    const drawerWidth: number = 240;
+    const navItems = [
+        {text: 'О нас', to: routeNames.ABOUT},
+        {text: 'Контакты', to: routeNames.CONTACTS},
+        {text: 'Упражнения', to: routeNames.EXERCISES},
+        {text: 'Статистика', to: routeNames.STATISTICS},
+    ];
 
     const handleDrawerToggle = () => {
         setMobileOpen(!mobileOpen);
@@ -94,7 +89,7 @@ const Header = () => {
                     onClose={handleDrawerToggle}
                     ModalProps={{keepMounted: true,}}
                     sx={{
-                        display: {xs: 'block', sm: 'none'},
+                        display: {xs: 'block', md: 'none'},
                         '& .MuiDrawer-paper': {width: drawerWidth},
                     }}
                 >

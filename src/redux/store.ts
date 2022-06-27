@@ -1,9 +1,11 @@
 import {combineReducers} from "redux";
 import {configureStore} from "@reduxjs/toolkit";
 import {exerciseSliceReducer} from './slice/exerciseSlice';
+import {quizSliceReducer} from "./slice/quizSlice";
 
 const rootReducer = combineReducers({
     exercises: exerciseSliceReducer,
+    quiz: quizSliceReducer,
 })
 
 export const store = configureStore({

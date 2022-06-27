@@ -11,23 +11,63 @@ $mainColor: #1976d2;
   display: grid;
   place-items: center;
 }
+
 a {
   text-decoration: none;
+}
+.under-text {
+  font-size: calc(2vmin + 6px);
 }
 header {
   a {
     color: #fff;
+
     &.active {
       color: gold;
     }
   }
 }
+
 .burger a {
   color: black;
+
   &.active {
     color: $mainColor;
   }
 }
+
 .exercise__link {
   color: $mainColor;
+}
+
+@media (min-width: 320px) {
+  .swiper {
+    .slide-quiz-box {
+      font-size: calc(3vmin + 8px);
+
+      img {
+        width: 100%;
+      }
+    }
+  }
+}
+
+@media (min-width: 550px) {
+  .swiper {
+    .slide-quiz-box {
+      img {
+        width: 65%;
+      }
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  .swiper {
+    .slide-quiz-box {
+      img {
+        width: 350px;
+      }
+    }
+  }
 }

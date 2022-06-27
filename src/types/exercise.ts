@@ -8,7 +8,7 @@ export interface IExercise {
 }
 
 export interface IExerciseDuration {
-    times: boolean,
+    itIsTime: boolean,
     duration: number,
     counts: number,
     repeats: number,
@@ -21,7 +21,12 @@ export interface IMuscles {
 export interface IActivity {
     exerciseName: string, // названия упр, которое ты сделал
     progress: number, // насколько оно сделано
+    step: number, // на каком подходе остановились
 }
 
 export type MuscleTypes = 'Грудь' | 'Пресс' | 'Бицепсы'
+    | 'Бедра' | 'Ягодицы' | 'Икры'
+    | 'Выносливость'
+
 export type ExerciseTypes = 'Жим лёжа' | 'Планка' | 'Скручивания' | 'Молотковые сгибания на бицепс'
+| 'Прыжки (звезда)' | 'Скалолаз' | 'Поднятие ног'

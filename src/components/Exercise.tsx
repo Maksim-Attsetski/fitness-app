@@ -19,7 +19,7 @@ interface IProps {
 const Exercise: FC<IProps> = ({exercise}) => {
     const dispatch = useTypedDispatch()
     const {description, name, timeType, id, muscles} = exercise
-    const {times, duration, counts, repeats} = timeType
+    const {itIsTime, duration, counts, repeats} = timeType
     const {favoriteExercises} = useTypedSelector(state => state.exercises)
     const inFavorite: boolean = useMemo(() => favoriteExercises.some((item: string) => item === id), [favoriteExercises])
     const [expanded, setExpanded] = useState<string | false>(false);
@@ -32,7 +32,7 @@ const Exercise: FC<IProps> = ({exercise}) => {
     const accordionItems = [
         {title: 'Описание', text: description},
         {title: 'Подходы', text: repeats},
-        {title: 'Повторения', text: times ? `Длительность: ${duration} сек` : `Повторы: ${counts} раз`},
+        {title: 'Повторения', text: itIsTime ? `Длительность: ${duration} сек` : `Повторы: ${counts} раз`},
         {title: 'Мышцы', text: muscles},
     ]
 

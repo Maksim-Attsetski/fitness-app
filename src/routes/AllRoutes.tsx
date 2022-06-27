@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {FC} from 'react';
 import {Route, Routes} from "react-router-dom";
 import Layout from "./Layout";
 import {routeNames} from "./routeNames";
@@ -9,8 +9,10 @@ import ContactPage from "../pages/ContactsPage";
 import ExercisePage from "../pages/ExercisePage";
 import StatisticsPage from "../pages/StatisticsPage";
 import ExerciseByID from "../components/ExerciseByID";
+import QuizPage from '../pages/QuizPage';
+import QuizItem from "../components/QuizItem";
 
-const AllRoutes = () => {
+const AllRoutes: FC = () => {
     return (
         <Routes>
             <Route path={'/'} element={<Layout/>}>
@@ -21,6 +23,8 @@ const AllRoutes = () => {
                 <Route path={routeNames.EXERCISES} element={<ExercisePage/>}/>
                 <Route path={`${routeNames.EXERCISES}/:id`} element={<ExerciseByID/>}/>
                 <Route path={routeNames.STATISTICS} element={<StatisticsPage/>}/>
+                <Route path={routeNames.QUIZ} element={<QuizPage/>}/>
+                <Route path={routeNames.QUIZ + '/:step/'} element={<QuizItem/>}/>
             </Route>
         </Routes>
     );

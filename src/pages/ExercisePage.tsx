@@ -1,6 +1,6 @@
 import React, {FC} from 'react';
 import {Grid} from "@mui/material";
-import {exerciseList} from "../db";
+import {exerciseList} from "../db/lists";
 import {IExercise} from "../types/exercise";
 import Exercise from "../components/Exercise";
 
