@@ -8,6 +8,7 @@ import {useTypedDispatch} from "../hooks/redux";
 import {setAnswer, setPlan} from "../redux/slice/quizSlice";
 import {routeNames} from "../routes/routeNames";
 import {quiz} from "../db/quiz";
+import {setExercises} from "../redux/slice/exerciseSlice";
 
 const QuizItem: FC = () => {
     const dispatch = useTypedDispatch()
@@ -38,6 +39,7 @@ const QuizItem: FC = () => {
         if (maxStep === step) {
             dispatch(setPlan())
             navigate(routeNames.HOME)
+            dispatch(setExercises())
         } else {
             navigate(`${routeNames.QUIZ}/${step + 1}`)
         }

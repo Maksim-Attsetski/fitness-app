@@ -24,7 +24,7 @@ export interface IActivity {
     step: number, // на каком подходе остановились
 }
 
-export type MuscleTypes = 'Грудь' | 'Пресс' | 'Бицепсы'
+export type MuscleTypes = 'Грудь' | 'Пресс' | 'Бицепсы' | 'Плечи'
     | 'Бедра' | 'Ягодицы' | 'Икры'
     | 'Выносливость'
 

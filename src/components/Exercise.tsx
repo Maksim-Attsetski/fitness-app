@@ -18,24 +18,21 @@ interface IProps {
 
 const Exercise: FC<IProps> = ({exercise}) => {
     const dispatch = useTypedDispatch()
-    const {description, name, timeType, id, muscles} = exercise
-    const {itIsTime, duration, counts, repeats} = timeType
+    const {description, name, id, muscles} = exercise
     const {favoriteExercises} = useTypedSelector(state => state.exercises)
-    const inFavorite: boolean = useMemo(() => favoriteExercises.some((item: string) => item === id), [favoriteExercises])
+    const inFavorite: boolean = useMemo(() => favoriteExercises.some((item: IExercise) => item.id === id), [favoriteExercises])
     const [expanded, setExpanded] = useState<string | false>(false);
 
     const handleChange = (panel: string) => (event: React.SyntheticEvent, isExpanded: boolean) => {
-        console.log(isExpanded)
         setExpanded(isExpanded ? panel : false);
     };
 
     const accordionItems = [
         {title: 'Описание', text: description},
-        {title: 'Подходы', text: repeats},
-        {title: 'Повторения', text: itIsTime ? `Длительность: ${duration} сек` : `Повторы: ${counts} раз`},
+        // {title: 'Подходы', text: repeats},
+        // {title: 'Повторения', text: itIsTime ? `Длительность: ${duration} сек` : `Повторы: ${counts} раз`},
         {title: 'Мышцы', text: muscles},
     ]
-
 
     return (
         <Grid item xs={12} sm={6} md={4}>
@@ -54,7 +51,7 @@ const Exercise: FC<IProps> = ({exercise}) => {
                     <Button size="small">
                         <Link className={'exercise__link'} to={`${routeNames.EXERCISES}/${id}`}>Перейти</Link>
                     </Button>
-                    <Button size="small" onClick={() => dispatch(toggleFavorite(id))}>
+                    <Button size="small" onClick={() => dispatch(toggleFavorite(exercise))}>
                         {inFavorite ? 'В избранном' : 'В избранное'}
                         {inFavorite
                             ? <FavoriteIcon sx={{ml: 2}}/>

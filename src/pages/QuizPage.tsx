@@ -1,33 +1,14 @@
 import React, {FC} from 'react';
-import {Swiper, SwiperSlide, useSwiper} from "swiper/react";
+import {Swiper, SwiperSlide} from "swiper/react";
 import Man from '../assets/img/man.png';
 import Woman from '../assets/img/woman.png';
 import Button from "@mui/material/Button";
-import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
-import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import Box from "@mui/material/Box";
 import Grid from '@mui/material/Grid';
 import {routeNames} from "../routes/routeNames";
 import {Link, useNavigate} from "react-router-dom";
+import {NextBtn, PrevBtn} from '../components/UI/QuizBtns';
 
-const NextBtn = () => {
-    const swiper = useSwiper()
-
-    return (
-        <Button variant='outlined' onClick={() => swiper.slideNext()}>
-            <ArrowForwardIosIcon/>
-        </Button>
-    )
-}
-const PrevBtn = () => {
-    const swiper = useSwiper()
-
-    return (
-        <Button variant='outlined' onClick={() => swiper.slidePrev()}>
-            <ArrowBackIosNewIcon/>
-        </Button>
-    )
-}
 const QuizPage: FC = () => {
     const navigate = useNavigate()
 
@@ -57,7 +38,7 @@ const QuizPage: FC = () => {
             >
                 <SwiperSlide className={'slide-quiz-box'} style={{display: 'flex', justifyContent: 'center'}}>
                     {({isActive}) => (
-                        <Box sx={{minHeight: 250}}>
+                        <Box sx={{minHeight: '80vh'}}>
                             <div><img src={Man} alt={'man'}/></div>
                             <Grid container spacing={2} wrap={'wrap'} alignItems={'center'} sx={{mt: 1}}>
                                 <Grid item>
@@ -73,7 +54,7 @@ const QuizPage: FC = () => {
                 </SwiperSlide>
                 <SwiperSlide style={{display: 'flex', justifyContent: 'center'}}>
                     {({isActive}) => (
-                        <Grid container style={{fontSize: 50, width: 300, minHeight: 250}}
+                        <Grid container style={{fontSize: 50, width: 300, minHeight: '80vh'}}
                               alignItems={'center'} direction={'column'} rowSpacing={2}>
                             <Grid item sx={{textAlign: 'center'}}>Какого ты пола?</Grid>
                             <Grid container spacing={2} justifyContent={'center'}>
@@ -87,9 +68,9 @@ const QuizPage: FC = () => {
                         </Grid>
                     )}
                 </SwiperSlide>
-                <SwiperSlide style={{display: 'flex', justifyContent: 'center'}}>
+                <SwiperSlide className={'slide-quiz-box'} style={{display: 'flex', justifyContent: 'center'}}>
                     {({isActive}) => (
-                        <Box className={'slide-quiz-box'} sx={{minHeight: 250}}>
+                        <Box sx={{minHeight: '80vh'}}>
                             <div><img src={Woman} alt={'woman'}/></div>
                             <Grid container spacing={2} wrap={'wrap'} alignItems={'center'} sx={{mt: 1}}>
                                 <Grid item>
